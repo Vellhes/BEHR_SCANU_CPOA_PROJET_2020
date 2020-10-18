@@ -21,30 +21,14 @@
                   <MenuItem fx:id="ajout_commande" mnemonicParsing="false" text="Commande" />
                </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Modifier">
+        <Menu mnemonicParsing="false" text="Gestion">
                <items>
-                  <MenuItem fx:id="modif_categ" mnemonicParsing="false" text="Catégorie" />
-                  <MenuItem fx:id="modif_prod" mnemonicParsing="false" text="Produit" />
-                  <MenuItem fx:id="modif_client" mnemonicParsing="false" text="Client" />
-                  <MenuItem fx:id="modif_commande" mnemonicParsing="false" text="Commande" />
+                  <MenuItem fx:id="gestion_categ" mnemonicParsing="false" onAction="#gestionCateg" text="Catégorie" />
+                  <MenuItem fx:id="gestion_prod" mnemonicParsing="false" text="Produit" />
+                  <MenuItem fx:id="gestion_client" mnemonicParsing="false" text="Client" />
+                  <MenuItem fx:id="gestion_commande" mnemonicParsing="false" text="Commande" />
                </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Supprimer">
-               <items>
-                  <MenuItem fx:id="suppr_categ" mnemonicParsing="false" text="Catégorie" />
-                  <MenuItem fx:id="suppr_prod" mnemonicParsing="false" text="Produit" />
-                  <MenuItem fx:id="suppr_client" mnemonicParsing="false" text="Client" />
-                  <MenuItem fx:id="suppr_commande" mnemonicParsing="false" text="Commande" />
-               </items>
-        </Menu>
-            <Menu mnemonicParsing="false" text="Visualiser">
-               <items>
-                  <MenuItem fx:id="visu_categ" mnemonicParsing="false" text="Catégorie" />
-                  <MenuItem fx:id="visu_prod" mnemonicParsing="false" text="Produit" />
-                  <MenuItem fx:id="visu_client" mnemonicParsing="false" text="Client" />
-                  <MenuItem fx:id="visu_commande" mnemonicParsing="false" text="Commande" />
-               </items>
-            </Menu>
       </menus>
     </MenuBar>
     <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">

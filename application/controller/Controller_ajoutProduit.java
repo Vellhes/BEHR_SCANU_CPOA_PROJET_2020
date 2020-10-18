@@ -79,7 +79,7 @@ public class Controller_ajoutProduit implements Initializable {
 	}
 
 	@FXML
-	void creerProduit(ActionEvent event) {
+	void creerProduit() {
 		if (tf_name.getText().trim().isEmpty() || ta_desc.getText().trim().isEmpty()
 				|| tf_price.getText().trim().isEmpty()) {
 			lbl_affiche.setText("Un ou plusieurs champ(s) vide(s)");
@@ -92,10 +92,9 @@ public class Controller_ajoutProduit implements Initializable {
 			produit.setNom(tf_name.getText().trim());
 			produit.setPrix(Double.parseDouble(tf_price.getText().trim()));
 			produit.setVisual(null);
-			DAOFactory dao = DAOFactory.getDAOFactory(Persistance.MYSQL);
+			DAOFactory dao = DAOFactory.getDAOFactory(Controller_menu.getChoixPersistance());
 			dao.getProduitDAO().create(produit);
-			lbl_affiche.setText("Produit : " + tf_name.getText().trim() + " (" + cb_categ.getValue().getTitre() + ") "
-					+ tf_price.getText().trim() + " euros");
+			lbl_affiche.setText("Produit : " + tf_name.getText().trim() + " (" + cb_categ.getValue().getTitre() + ") "+ tf_price.getText().trim() + " euros");
 			tf_name.clear();
 			ta_desc.clear();
 			tf_price.clear();

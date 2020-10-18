@@ -30,40 +30,16 @@ public class Controller_menu implements Initializable {
 	private MenuItem ajout_commande;
 
 	@FXML
-	private MenuItem modif_categ;
+	private MenuItem gestion_categ;
 
 	@FXML
-	private MenuItem modif_prod;
+	private MenuItem gestion_prod;
 
 	@FXML
-	private MenuItem modif_client;
+	private MenuItem gestion_client;
 
 	@FXML
-	private MenuItem modif_commande;
-
-	@FXML
-	private MenuItem suppr_categ;
-
-	@FXML
-	private MenuItem suppr_prod;
-
-	@FXML
-	private MenuItem suppr_client;
-
-	@FXML
-	private MenuItem suppr_commande;
-
-	@FXML
-	private MenuItem visu_categ;
-
-	@FXML
-	private MenuItem visu_prod;
-
-	@FXML
-	private MenuItem visu_client;
-
-	@FXML
-	private MenuItem visu_commande;
+	private MenuItem gestion_commande;
 
 	@FXML
 	private Button btn_sql;
@@ -82,7 +58,7 @@ public class Controller_menu implements Initializable {
 	}
 
 	@FXML
-	void ajoutProd(ActionEvent event) {
+	void ajoutProd() {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/ajoutProduit.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
@@ -96,7 +72,7 @@ public class Controller_menu implements Initializable {
 	}
 	
 	@FXML
-	void ajoutClient(ActionEvent event) {
+	void ajoutClient() {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/ajoutClient.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
@@ -110,7 +86,21 @@ public class Controller_menu implements Initializable {
 	}
 
 	@FXML
-	void cibleSQL(ActionEvent event) {
+	void gestionCateg() {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/gestionCateg.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Gestion Catégories");
+			stage.setScene(new Scene(root1));
+			stage.show();
+		}catch(Exception e) {
+			System.out.println("Can't load new window " + e);
+		}
+	}
+	
+	@FXML
+	void cibleSQL() {
 		btn_sql.setDisable(true);
 		btn_lm.setDisable(false);
 		lbl_cible.setText("Votre cible est : SQL");
@@ -119,7 +109,7 @@ public class Controller_menu implements Initializable {
 	}
 
 	@FXML
-	void cibleLM(ActionEvent event) {
+	void cibleLM() {
 		btn_sql.setDisable(false);
 		btn_lm.setDisable(true);
 		lbl_cible.setText("Votre cible est : Liste Mémoire");
