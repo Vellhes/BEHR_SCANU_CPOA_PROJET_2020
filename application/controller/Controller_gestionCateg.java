@@ -106,13 +106,13 @@ public class Controller_gestionCateg implements Initializable  {
 	}
 	
 	@FXML
-	void supprCateg() {
+	boolean supprCateg() {
 		List<Produit> produit = dao.getProduitDAO().getAll();
 		for(int i = 0 ; i < produit.size() ; i++) {
 			if(produit.get(i).getCateg().getId() == categ.getId()) {
 				lbl_erreur1.setText("Catégorie impossible à supprimer");
 				lbl_erreur2.setText("(produits existants)");
-				break;
+				return false;
 			}
 		}
 		dao.getCategorieDAO().delete(categ);
@@ -127,6 +127,7 @@ public class Controller_gestionCateg implements Initializable  {
 		lbl_affiche.setText("");
 		lbl_erreur1.setText("");
 		lbl_erreur2.setText("");
+		return true;
 	}
 	
 	

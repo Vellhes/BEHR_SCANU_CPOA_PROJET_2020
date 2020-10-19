@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<FlowPane fx:id="fp_main" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller_ajoutProduit" >
+<FlowPane fx:id="fp_main" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller_ajoutProduit">
    <children>
       <VBox fx:id="vb_main" alignment="CENTER" prefHeight="483.0" prefWidth="622.0">
          <children>
@@ -28,12 +28,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label fx:id="lbl_name" alignment="CENTER_RIGHT" text="Nom : " />
                   <Label fx:id="lbl_desc" text="Description : " GridPane.rowIndex="1" />
                   <Label fx:id="lbl_price" text="Tarif : " GridPane.rowIndex="2" />
-                  <Label fx:id="lbl_categ" text="Catégorie : " GridPane.rowIndex="3" />
+                  <Label fx:id="lbl_categ" text="Catégorie : " GridPane.rowIndex="4" />
                   <TextField fx:id="tf_name" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />
@@ -44,7 +45,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </TextArea>
-                  <ChoiceBox fx:id="cb_categ" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <ChoiceBox fx:id="cb_categ" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
@@ -55,6 +56,12 @@
                      </GridPane.margin>
                   </TextField>
                   <Label fx:id="lbl_euro" text="euros à l'unité" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label text="Visuel :" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets right="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="tf_visual" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <FlowPane fx:id="fp_create" alignment="CENTER" prefHeight="115.0" prefWidth="724.0">

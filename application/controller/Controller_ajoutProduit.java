@@ -56,6 +56,9 @@ public class Controller_ajoutProduit implements Initializable {
 	private TextField tf_price;
 
 	@FXML
+	private TextField tf_visual;
+	
+	@FXML
 	private Label lbl_euro;
 
 	@FXML
@@ -81,7 +84,7 @@ public class Controller_ajoutProduit implements Initializable {
 	@FXML
 	void creerProduit() {
 		if (tf_name.getText().trim().isEmpty() || ta_desc.getText().trim().isEmpty()
-				|| tf_price.getText().trim().isEmpty()) {
+				|| tf_price.getText().trim().isEmpty() || tf_visual.getText().trim().isEmpty()) {
 			lbl_affiche.setText("Un ou plusieurs champ(s) vide(s)");
 		} else if (cb_categ.getValue() == null) {
 			lbl_affiche.setText("Categorie non sélectionnée");
@@ -91,13 +94,14 @@ public class Controller_ajoutProduit implements Initializable {
 			produit.setDesc(ta_desc.getText().trim());
 			produit.setNom(tf_name.getText().trim());
 			produit.setPrix(Double.parseDouble(tf_price.getText().trim()));
-			produit.setVisual(null);
+			produit.setVisual(tf_visual.getText().trim());
 			DAOFactory dao = DAOFactory.getDAOFactory(Controller_menu.getChoixPersistance());
 			dao.getProduitDAO().create(produit);
 			lbl_affiche.setText("Produit : " + tf_name.getText().trim() + " (" + cb_categ.getValue().getTitre() + ") "+ tf_price.getText().trim() + " euros");
 			tf_name.clear();
 			ta_desc.clear();
 			tf_price.clear();
+			tf_visual.clear();
 		}
 	}
 }
