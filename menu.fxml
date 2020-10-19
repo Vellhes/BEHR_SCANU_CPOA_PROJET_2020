@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "application.controller.Controller_menu">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Ajouter">
+               <items>
+                  <MenuItem fx:id="ajout_categ" mnemonicParsing="false" onAction ="#ajoutCateg" text="Catégorie" />
+                  <MenuItem fx:id="ajout_prod" mnemonicParsing="false" onAction="#ajoutProd" text="Produit" />
+                  <MenuItem fx:id="ajout_client" mnemonicParsing="false" onAction="#ajoutClient" text="Client" />
+                  <MenuItem fx:id="ajout_commande" mnemonicParsing="false" text="Commande" />
+               </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Gestion">
+               <items>
+                  <MenuItem fx:id="gestion_categ" mnemonicParsing="false" onAction="#gestionCateg" text="Catégorie" />
+                  <MenuItem fx:id="gestion_prod" mnemonicParsing="false" text="Produit" />
+                  <MenuItem fx:id="gestion_client" mnemonicParsing="false" text="Client" />
+                  <MenuItem fx:id="gestion_commande" mnemonicParsing="false" text="Commande" />
+               </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="25.0" style="&#10;" text="Bonjour, Bienvenue sur l'application des pulls moches." textAlignment="CENTER" textFill="#070606" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <Button fx:id="btn_sql" layoutX="202.0" layoutY="103.0" mnemonicParsing="false" onAction="#cibleSQL" text="SQL" />
+            <Button fx:id="btn_lm" layoutX="338.0" layoutY="103.0" mnemonicParsing="false" onAction="#cibleLM" text="LISTE MEMOIRE" />
+            <Label fx:id="lbl_cible" contentDisplay="CENTER" layoutX="239.0" layoutY="149.0" text="Votre cible est : SQL" textAlignment="CENTER" />
+            <Label layoutX="231.0" layoutY="64.0" text="Choisissez une cible :" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
