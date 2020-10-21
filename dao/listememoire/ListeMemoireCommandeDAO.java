@@ -108,4 +108,10 @@ DAOFactory daos = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
 		return null;
 	}
 
+	@Override
+	public boolean createLC(Commande objet) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

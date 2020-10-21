@@ -99,4 +99,18 @@ public class ListeMemoireProduitDAO implements ProduitDAO {
         return null;
 	}
 
+	@Override
+	public List<Produit> getByCateg(int ID) {
+		List<Produit> liste = new ArrayList<>();
+		if(this.donnees != null && !this.donnees.isEmpty()) {
+			for(Produit produits : this.donnees) {
+				if(produits.getCateg().getId()==ID) {
+					liste.add(produits);
+				}
+			}
+			return liste;
+		}
+		return null;
+	}
+
 }

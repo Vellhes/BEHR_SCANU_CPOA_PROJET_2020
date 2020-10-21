@@ -40,7 +40,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Label>
-            <Button fx:id="btn_modify" mnemonicParsing="false" text="Modifier" GridPane.rowIndex="2">
+            <Button fx:id="btn_modify" mnemonicParsing="false" text="Modifier" onAction="#modifCateg" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="140.0" />
                </GridPane.margin>
@@ -93,7 +93,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="btn_valider" mnemonicParsing="false" text="Valider" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Button fx:id="btn_valider" mnemonicParsing="false" onAction="#validModif" text="Valider" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
             <Label fx:id="lbl_modif" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />

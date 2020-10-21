@@ -129,5 +129,34 @@ public class MySQLProduitDAO implements ProduitDAO{
 		}
 		return null;
 	}
+
+	@Override
+	public List<Produit> getByCateg(int ID) {
+		liste = new ArrayList<>();
+		try {
+			Connexion connect = new Connexion();
+			Connection cnx = connect.creeConnexion();
+			Statement stm = cnx.createStatement();
+			ResultSet res = stm.executeQuery("Select * from Produit where id_categorie ="+ID+" ;");
+			while(res.next()) {
+				Produit produit = new Produit();
+				produit = new Produit();
+				produit.setID(res.getInt("id_produit"));
+				produit.setNom(res.getString("nom"));
+				produit.setDesc(res.getString("description"));
+				produit.setPrix(res.getDouble("tarif"));
+				produit.setVisual(res.getString("visuel"));
+				Categorie categ = (daos.getCategorieDAO().getById(res.getInt("id_categorie")));
+				produit.setCateg(categ);
+				liste.add(produit);
+			}
+			return liste;
+		}catch(SQLException sqle) {
+			System.out.println("pb select "+sqle.getMessage());
+		}
+		return null;
+	}
+	
+	
 	
 }

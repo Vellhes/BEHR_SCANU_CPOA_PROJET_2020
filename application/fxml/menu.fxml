@@ -15,16 +15,21 @@
       <menus>
         <Menu mnemonicParsing="false" text="Ajouter">
                <items>
-                  <MenuItem fx:id="ajout_categ" mnemonicParsing="false" text="Catégorie" />
+                  
+                  <MenuItem fx:id="ajout_categ" mnemonicParsing="false" onAction ="#ajoutCateg" text="Catégorie" />
                   <MenuItem fx:id="ajout_prod" mnemonicParsing="false" onAction="#ajoutProd" text="Produit" />
                   <MenuItem fx:id="ajout_client" mnemonicParsing="false" onAction="#ajoutClient" text="Client" />
-                  <MenuItem fx:id="ajout_commande" mnemonicParsing="false" text="Commande" />
+                  <Menu mnemonicParsing="false" text="Commande">
+                  	<MenuItem fx:id="ajout_commande" mnemonicParsing="false" onAction="#ajoutCommande" text="Commande" />
+                  	<MenuItem fx:id="ajout_lignecommande" mnemonicParsing="false" onAction="#ajoutLigneCommande" text="Ligne Commande" />
+                  </Menu>
+                 
                </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Gestion">
                <items>
                   <MenuItem fx:id="gestion_categ" mnemonicParsing="false" onAction="#gestionCateg" text="Catégorie" />
-                  <MenuItem fx:id="gestion_prod" mnemonicParsing="false" text="Produit" />
+                  <MenuItem fx:id="gestion_prod" mnemonicParsing="false" onAction="#gestionProduit" text="Produit" />
                   <MenuItem fx:id="gestion_client" mnemonicParsing="false" text="Client" />
                   <MenuItem fx:id="gestion_commande" mnemonicParsing="false" text="Commande" />
                </items>

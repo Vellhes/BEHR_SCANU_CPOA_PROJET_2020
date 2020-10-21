@@ -73,7 +73,7 @@ public class Produit {
 
 	@Override
 	public String toString() {
-		return "ID : " + ID + ", nom : "+nom+", description : "+desc+", tarif : "+prix+", visuel : "+visual+", (categorie : "+categ+" )" ;
+		return "ID : "+ID+", nom : "+nom+" ("+prix+")";
 	}
 
 	public double getPrix() {

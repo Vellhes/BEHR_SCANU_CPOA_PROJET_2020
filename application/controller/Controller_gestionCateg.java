@@ -96,7 +96,8 @@ public class Controller_gestionCateg implements Initializable  {
 		
 	}
 	
-	public void setTableContent() {
+	private void setTableContent() {
+		tab_categ.getItems().clear();
 		col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
 		col_name.setCellValueFactory(new PropertyValueFactory<>("titre"));
 		ObservableList<Categorie> data = FXCollections.observableArrayList(
@@ -130,5 +131,45 @@ public class Controller_gestionCateg implements Initializable  {
 		return true;
 	}
 	
+	@FXML
+	void modifCateg() {
+		tab_categ.setDisable(true);
+		btn_suppr.setDisable(true);
+		btn_modify.setDisable(true);
+		lbl_name.setDisable(false);
+		lbl_visual.setDisable(false);
+		tf_name.setDisable(false);
+		tf_visual.setDisable(false);
+		btn_valider.setDisable(false);
+	}
 	
+	@FXML
+	void validModif() {
+		String title = tf_name.getText().trim();
+		String visual = tf_visual.getText().trim();
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Catégorie modifiée");
+        alert.setHeaderText(null);
+		if(title.isEmpty() || visual.isEmpty()) {
+			lbl_modif.setText("Champ(s) vide(s)");
+		}
+		else {
+			alert.setContentText("Catégorie "+categ.getId()+" changée : "+categ.getTitre()+" "+categ.getVisual()+
+					" -> "+title+" "+visual);
+			categ.setTitre(title);
+			categ.setVisual(visual);
+			dao.getCategorieDAO().update(categ);
+			alert.showAndWait();
+			tab_categ.setDisable(false);
+			btn_suppr.setDisable(false);
+			btn_modify.setDisable(false);
+			lbl_name.setDisable(true);
+			lbl_visual.setDisable(true);
+			tf_name.setDisable(true);
+			tf_visual.setDisable(true);
+			btn_valider.setDisable(true);
+			lbl_modif.setText("");
+		}
+		setTableContent();
+	}
 }

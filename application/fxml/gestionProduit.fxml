@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller_gestionProduit">
+   <children>
+      <GridPane alignment="CENTER" prefHeight="247.0" prefWidth="617.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.0" minWidth="10.0" prefWidth="428.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="172.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="147.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="38.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TableView fx:id="tab_produit" prefHeight="141.0" prefWidth="511.0">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="52.0" text="ID" />
+                <TableColumn fx:id="col_name" prefWidth="205.0" text="Nom" />
+                  <TableColumn fx:id="col_categ" prefWidth="159.0" text="Catégorie" />
+                  <TableColumn fx:id="col_prix" minWidth="0.0" prefWidth="61.0" text="Prix" />
+              </columns>
+            </TableView>
+            <Label fx:id="lbl_affiche1" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="80.0" left="20.0" />
+               </GridPane.margin>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Label>
+            <Button fx:id="btn_modify" mnemonicParsing="false" text="Modifier" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="140.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="btn_suppr" mnemonicParsing="false" onAction="#supr_prod" text="Supprimer" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="135.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="lbl_erreur1" textFill="RED" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lbl_erreur2" textFill="RED" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" top="40.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lbl_affiche2" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="20.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+      <GridPane alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="198.0" prefWidth="800.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="138.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="199.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="164.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="175.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="139.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Nom : " GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="Déscription : " GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="tf_name" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="tf_desc" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="btn_valider" mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="tf_prix" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label text="Prix : " GridPane.rowIndex="2" />
+            <Label text="Visuel : " GridPane.rowIndex="1" />
+            <TextField fx:id="tf_visual" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label text="Catégorie : " GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <ChoiceBox fx:id="cb_categ" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </ChoiceBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

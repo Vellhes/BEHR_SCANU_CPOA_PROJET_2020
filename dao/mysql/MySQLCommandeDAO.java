@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import connexion.Connexion;
 import dao.CommandeDAO;
@@ -19,7 +20,8 @@ import metier.Produit;
 
 public class MySQLCommandeDAO implements CommandeDAO{
 
-
+	Map<Produit, Integer> produits = new HashMap<>();
+	
 	private List<Commande> liste;
 	
 	private static MySQLCommandeDAO instance;
@@ -80,7 +82,11 @@ public class MySQLCommandeDAO implements CommandeDAO{
 			Connection cnx = connect.creeConnexion();
 			Statement stm = cnx.createStatement();
 			stm.executeUpdate("INSERT INTO `scanu5u_JAVA`.`Commande` (`id_commande`, `date_commande`, `id_client`) VALUES ("+objet.getId()+",'"+objet.getDate()+"', '"+objet.getClient().getID()+"');");
-			verif = true;
+			for (Entry<Produit, Integer> entry : produits.entrySet()) {
+	            System.out.println(entry.getKey());
+	            stm.executeUpdate("INSERT INTO `scanu5u_JAVA`.`Ligne_commande` (`id_commande`, `id_produit`,`quantite`,`tarif_unitaire`) VALUES ("+objet.getId()+","+entry.getKey().getID()+",'"+entry.getValue()+"','"+entry.getKey().getPrix()+"');");
+			}
+	        verif = true;
 		}catch(SQLException sqle) {
 			System.out.println("pb select "+sqle.getMessage());
 		}
@@ -165,6 +171,24 @@ public class MySQLCommandeDAO implements CommandeDAO{
 			System.out.println("pb select "+sqle.getMessage());
 		}
 		return null;
+	}
+
+	@Override
+	public boolean createLC(Commande objet) {
+		boolean verif = false;
+		try {
+			Connexion connect = new Connexion();
+			Connection cnx = connect.creeConnexion();
+			Statement stm = cnx.createStatement();
+			produits = objet.getProduits();
+			for (Entry<Produit, Integer> entry : produits.entrySet()) {
+	            stm.executeUpdate("INSERT INTO `scanu5u_JAVA`.`Ligne_commande` (`id_commande`, `id_produit`,`quantite`,`tarif_unitaire`) VALUES ("+objet.getId()+","+entry.getKey().getID()+",'"+entry.getValue()+"','"+entry.getKey().getPrix()+"');");
+			}
+	        verif = true;
+		}catch(SQLException sqle) {
+			System.out.println("pb select "+sqle.getMessage());
+		}
+		return verif;
 	}
 }
 
