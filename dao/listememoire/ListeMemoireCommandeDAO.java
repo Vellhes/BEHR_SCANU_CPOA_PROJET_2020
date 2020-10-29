@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import dao.CommandeDAO;
 import daofactory.DAOFactory;
@@ -21,6 +22,7 @@ DAOFactory daos = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
 
 
 	private List<Commande> donnees;
+	
 	
 	private Map<Produit, Integer> produits1, produits2;
 	
@@ -110,7 +112,18 @@ DAOFactory daos = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
 
 	@Override
 	public boolean createLC(Commande objet) {
-		// TODO Auto-generated method stub
+		if(this.donnees != null && !this.donnees.isEmpty()) {
+			for(Commande commandes : this.donnees) {
+				if(commandes.getId()==objet.getId()) {
+					Map<Produit, Integer>listeprod = commandes.getProduits();
+					for (Entry<Produit, Integer> entry : objet.getProduits().entrySet()) {
+						listeprod.put(entry.getKey(), entry.getValue());
+					}
+					commandes.setProduits(listeprod);
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 

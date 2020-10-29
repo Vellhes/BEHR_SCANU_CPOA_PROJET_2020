@@ -110,10 +110,6 @@ public class Controller_ajoutLigneCommande implements Initializable{
 		        Commande commande = cb_commande.getItems().get((Integer) number2);
 		        String date = commande.getDate();
 		        tf_date.setText(date);
-		        /*Date actuelle = new Date();
-				DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-				String dateStr = (date.format(actuelle)+" 00:00:00")*/;
-
 		      }
 		});
 	}

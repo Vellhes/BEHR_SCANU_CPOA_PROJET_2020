@@ -84,6 +84,13 @@ public class MySQLClientDAO implements ClientDAO{
 				client.setID(res.getInt("id_client"));
 				client.setNom(res.getString("nom"));
 				client.setPrenom(res.getString("prenom"));
+				client.setIdentifiant(res.getString("identifiant"));
+				client.setMdp(res.getString("mot_de_passe"));
+				client.setPays(res.getString("adr_pays"));
+				client.setPostal(res.getString("adr_code_postal"));
+				client.setVille(res.getString("adr_ville"));
+				client.setVoie(res.getString("adr_voie"));
+				client.setNum(res.getString("adr_numero"));
 				return client;
 			} 
 		}
@@ -106,6 +113,13 @@ public class MySQLClientDAO implements ClientDAO{
 				client.setID(res.getInt("id_client"));
 				client.setNom(res.getString("nom"));
 				client.setPrenom(res.getString("prenom"));
+				client.setIdentifiant(res.getString("identifiant"));
+				client.setMdp(res.getString("mot_de_passe"));
+				client.setPays(res.getString("adr_pays"));
+				client.setPostal(res.getString("adr_code_postal"));
+				client.setVille(res.getString("adr_ville"));
+				client.setVoie(res.getString("adr_voie"));
+				client.setNum(res.getString("adr_numero"));
 				liste.add(client);
 			}
 			return liste;

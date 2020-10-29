@@ -30,7 +30,7 @@
                <items>
                   <MenuItem fx:id="gestion_categ" mnemonicParsing="false" onAction="#gestionCateg" text="Catégorie" />
                   <MenuItem fx:id="gestion_prod" mnemonicParsing="false" onAction="#gestionProduit" text="Produit" />
-                  <MenuItem fx:id="gestion_client" mnemonicParsing="false" text="Client" />
+                  <MenuItem fx:id="gestion_client" mnemonicParsing="false" onAction="#gestionClient" text="Client" />
                   <MenuItem fx:id="gestion_commande" mnemonicParsing="false" text="Commande" />
                </items>
         </Menu>

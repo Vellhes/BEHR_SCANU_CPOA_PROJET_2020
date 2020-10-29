@@ -169,7 +169,8 @@ public class Controller_gestionCateg implements Initializable  {
 			tf_visual.setDisable(true);
 			btn_valider.setDisable(true);
 			lbl_modif.setText("");
+			setTableContent();
 		}
-		setTableContent();
+		
 	}
 }

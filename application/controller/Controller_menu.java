@@ -53,7 +53,6 @@ public class Controller_menu implements Initializable {
 	private Label lbl_cible;
 
 	private static Persistance persistance = Persistance.MYSQL;
-
 	
 	public static Persistance getChoixPersistance() {
 		return persistance;
@@ -149,6 +148,20 @@ public class Controller_menu implements Initializable {
 			Parent root1 = (Parent) fxmlLoader.load();
 			Stage stage = new Stage();
 			stage.setTitle("Gestion Produits");
+			stage.setScene(new Scene(root1));
+			stage.show();
+		}catch(Exception e) {
+			System.out.println("Can't load new window " + e);
+		}
+	}
+	
+	@FXML
+	void gestionClient() {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/gestionClient.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Gestion Clients");
 			stage.setScene(new Scene(root1));
 			stage.show();
 		}catch(Exception e) {
