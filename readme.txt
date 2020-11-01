@@ -1,5 +1,8 @@
 https://trello.com/b/a7lFbtuS/cpoa-projet
 
+Lors de l'import depuis GitHub sur Eclipse il faut faire attention, le programme ne se lance pas forcément, il faut alors créer un autre projet et copier coller tous les packages dans le src.
+
+
 Toutes les fenêtres d'ajout fonctionnent (Client, produit, commande, ligne commande, catégorie).
 Les fenêtres de gestion fonctionnent totalement pour Client et Catégorie (Modification, suppression, visualisation)
 Les fenêtres de gestion des Produits et des Commandes fonctionnent pour supprimer, modifier et visualiser les données mais les recherches (par Catégorie et prix pour les produits et par client et produit pour la Commande) ne fonctionnent pas.
