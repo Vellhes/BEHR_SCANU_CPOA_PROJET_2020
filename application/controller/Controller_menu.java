@@ -170,6 +170,20 @@ public class Controller_menu implements Initializable {
 	}
 	
 	@FXML
+	void gestionCommande() {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/gestionCommande.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Gestion Commandes");
+			stage.setScene(new Scene(root1));
+			stage.show();
+		}catch(Exception e) {
+			System.out.println("Can't load new window " + e);
+		}
+	}
+	
+	@FXML
 	void cibleSQL() {
 		btn_sql.setDisable(true);
 		btn_lm.setDisable(false);

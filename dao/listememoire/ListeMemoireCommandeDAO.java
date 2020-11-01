@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-
 import dao.CommandeDAO;
 import daofactory.DAOFactory;
 import daofactory.Persistance;
@@ -115,11 +113,7 @@ DAOFactory daos = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
 		if(this.donnees != null && !this.donnees.isEmpty()) {
 			for(Commande commandes : this.donnees) {
 				if(commandes.getId()==objet.getId()) {
-					Map<Produit, Integer>listeprod = commandes.getProduits();
-					for (Entry<Produit, Integer> entry : objet.getProduits().entrySet()) {
-						listeprod.put(entry.getKey(), entry.getValue());
-					}
-					commandes.setProduits(listeprod);
+					commandes.setProduits(objet.getProduits());
 					return true;
 				}
 			}

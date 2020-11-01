@@ -100,7 +100,7 @@ public class MySQLCommandeDAO implements CommandeDAO{
 			Connexion connect = new Connexion();
 			Connection cnx = connect.creeConnexion();
 			Statement stm = cnx.createStatement();
-			stm.executeUpdate("UPDATE `scanu5u_JAVA`.`Commande` SET `date_commande` = '"+objet.getDate()+"', `id_client` = '"+objet.getClient().getID()+"'");
+			stm.executeUpdate("UPDATE `scanu5u_JAVA`.`Commande` SET `date_commande` = '"+objet.getDate()+"', `id_client` = '"+objet.getClient().getID()+"' WHERE `id_commande` = '"+objet.getId()+"'");
 			verif = true;
 		}catch(SQLException sqle) {
 			System.out.println("pb select "+sqle.getMessage());
@@ -116,6 +116,7 @@ public class MySQLCommandeDAO implements CommandeDAO{
 			Connection cnx = connect.creeConnexion();
 			Statement stm = cnx.createStatement();
 			stm.executeUpdate("delete from Commande where id_commande = " + objet.getId()+";");
+			stm.executeUpdate("delete from Ligne_commande where id_commande = "+ objet.getId()+";");
 			verif = true;
 		}catch(SQLException sqle) {
 			System.out.println("pb select "+sqle.getMessage());
@@ -131,9 +132,7 @@ public class MySQLCommandeDAO implements CommandeDAO{
 			Statement stm = cnx.createStatement();
 			ResultSet res2 = stm.executeQuery("Select * from Ligne_commande where id_commande = "+id);
 			while(res2.next()) {
-				Produit prod = new Produit();
-				prod.setID(res2.getInt("id_produit"));
-				prod.setPrix(res2.getDouble("tarif_unitaire"));
+				Produit prod = daos.getProduitDAO().getById(res2.getInt("id_produit"));
 				produits2.put(prod, res2.getInt("quantite"));
 			}
 			return produits2;

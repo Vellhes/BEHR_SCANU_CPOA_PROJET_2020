@@ -25,6 +25,8 @@ import metier.Categorie;
 
 public class Controller_ajoutLigneCommande implements Initializable{
 
+	DAOFactory dao = DAOFactory.getDAOFactory(Controller_menu.getChoixPersistance());
+	
     @FXML
     private FlowPane fp_main;
 
@@ -77,8 +79,6 @@ public class Controller_ajoutLigneCommande implements Initializable{
     		Map<Produit, Integer> produits = new HashMap<>();
     		produits.put(produit, qte);
     		commande.setProduits(produits);
-    		Persistance persistance = Controller_menu.getChoixPersistance();
-    		DAOFactory dao = DAOFactory.getDAOFactory(persistance);
     		boolean verif = dao.getCommandeDAO().createLC(commande);
     		if(verif==true) {
     			tf_qte.clear();

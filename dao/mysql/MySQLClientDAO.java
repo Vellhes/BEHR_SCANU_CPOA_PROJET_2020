@@ -49,7 +49,7 @@ public class MySQLClientDAO implements ClientDAO{
 			Connexion connect = new Connexion();
 			Connection cnx = connect.creeConnexion();
 			Statement stm = cnx.createStatement();
-			stm.executeUpdate("UPDATE `scanu5u_JAVA`.`Client` SET `nom` = '"+objet.getNom()+"' , `prenom` = '"+objet.getPrenom()+"' WHERE `Client`.`id_client` = "+objet.getID()+";");
+			stm.executeUpdate("UPDATE `scanu5u_JAVA`.`Client` SET `nom` = '"+objet.getNom()+"' , `prenom` = '"+objet.getPrenom()+"', `identifiant` = '"+objet.getIdentifiant()+"', `mot_de_passe` = '"+objet.getMdp()+"', `adr_numero` = '"+objet.getNum()+"', `adr_voie`='"+objet.getVoie()+"', `adr_code_postal` = '"+objet.getPostal()+"', `adr_ville`='"+objet.getVille()+"', `adr_pays` = '"+objet.getPays()+"'  WHERE `Client`.`id_client` = "+objet.getID()+";");
 			verif = true;
 		}catch(SQLException sqle) {
 			System.out.println("pb select "+sqle.getMessage());

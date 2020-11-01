@@ -214,6 +214,8 @@ public class Controller_gestionClient implements Initializable {
             lbl_erreur2.setText("");
             tab_pane.setDisable(false);
             modif_pane.setDisable(true);
+            btn_modify.setDisable(true);
+    		btn_suppr.setDisable(true);
             setTableContent();
         }
 	}
